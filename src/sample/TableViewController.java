@@ -22,10 +22,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
-import javafx.scene.image.Image;
 import javafx.stage.Stage;
-import sample.Person;
-import sample.PersonViewController;
 
 /**
  * FXML Controller class
@@ -48,10 +45,7 @@ public class TableViewController implements Initializable {
     @FXML private Button detailedPersonViewButton;
 
 
-    /**
-     * This method will allow the user to double click on a cell and update
-     * the first name of the person
-     */
+
     public void changeFirstNameCellEvent(CellEditEvent edittedCell)
     {
         Person personSelected =  tableView.getSelectionModel().getSelectedItem();
@@ -59,30 +53,21 @@ public class TableViewController implements Initializable {
     }
 
 
-    /**
-     * This method will enable the detailed view button once a row in the table is
-     * selected
-     */
+
     public void userClickedOnTable()
     {
         this.detailedPersonViewButton.setDisable(false);
     }
 
 
-    /**
-     * This method will allow the user to double click on a cell and update
-     * the first name of the person
-     */
+
     public void changeLastNameCellEvent(CellEditEvent edittedCell)
     {
         Person personSelected =  tableView.getSelectionModel().getSelectedItem();
         personSelected.setLastName(edittedCell.getNewValue().toString());
     }
 
-    /**
-     * When this method is called, it will change the Scene to 
-     * a TableView example
-     */
+
     public void changeScreenButtonPushed(ActionEvent event) throws IOException
     {
         Parent tableViewParent = FXMLLoader.load(getClass().getResource("TableView.fxml"));
@@ -95,20 +80,17 @@ public class TableViewController implements Initializable {
         window.show();
     }
 
-    /**
-     * When this method is called, it will pass the selected Person object to
-     * a the detailed view
-     */
+
     public void changeSceneToDetailedPersonView(ActionEvent event) throws IOException
     {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("PersonView.fxml"));
+        loader.setLocation(getClass().getResource("PacientView.fxml"));
         Parent tableViewParent = loader.load();
 
         Scene tableViewScene = new Scene(tableViewParent);
 
         //access the controller and call a method
-        PersonViewController controller = loader.getController();
+        PacientViewController controller = loader.getController();
         controller.initData(tableView.getSelectionModel().getSelectedItem());
 
         //This line gets the Stage information
@@ -120,9 +102,7 @@ public class TableViewController implements Initializable {
 
 
 
-    /**
-     * Initializes the controller class.
-     */
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         //set up the columns in the table
@@ -147,9 +127,7 @@ public class TableViewController implements Initializable {
     }
 
 
-    /**
-     * This method will remove the selected row(s) from the table 
-     */
+
     public void deleteButtonPushed()
     {
         ObservableList<Person> selectedRows, allPeople;
@@ -167,9 +145,7 @@ public class TableViewController implements Initializable {
 
 
 
-    /**
-     * This method will create a new Person object and add it to the table
-     */
+
     public void newPersonButtonPushed()
     {
         Person newPerson = new Person(firstNameTextField.getText(),
@@ -183,9 +159,7 @@ public class TableViewController implements Initializable {
 
 
 
-    /**
-     * This method will return an ObservableList of People objects
-     */
+
     public ObservableList<Person>  getPeople()
     {
         ObservableList<Person> people = FXCollections.observableArrayList();

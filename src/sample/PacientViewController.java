@@ -24,7 +24,7 @@ import java.time.LocalDate;
 import java.time.Month;
 import java.util.ResourceBundle;
 
-public class PersonViewController implements Initializable {
+public class PacientViewController implements Initializable {
 
     private Person selectedPerson;
 
@@ -34,10 +34,7 @@ public class PersonViewController implements Initializable {
     @FXML private Label ageLabel;
     @FXML private ImageView photo;
 
-    /**
-     * This method accepts a person to initialize the view
-     * @param person
-     */
+
     public void initData(Person person)
     {
 
@@ -50,10 +47,6 @@ public class PersonViewController implements Initializable {
     }
 
 
-    /**
-     * When this method is called, it will change the Scene to
-     * a TableView example
-     */
     public void changeScreenButtonPushed(ActionEvent event) throws IOException
     {
         Parent tableViewParent = FXMLLoader.load(getClass().getResource("TableView.fxml"));
@@ -67,9 +60,7 @@ public class PersonViewController implements Initializable {
     }
 
 
-    /**
-     * Initializes the controller class.
-     */
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
