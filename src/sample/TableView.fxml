@@ -10,11 +10,11 @@
 
 <AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.TableViewController">
     <children>
-        <VBox layoutX="26.0" layoutY="19.0" prefHeight="538.0" prefWidth="734.0" spacing="10.0">
+        <VBox layoutX="26.0" layoutY="19.0" prefHeight="545.0" prefWidth="739.0" spacing="10.0">
             <children>
                 <Label text="Patient List">
                     <font>
-                        <Font name="System Bold Italic" size="32.0" />
+                        <Font name="System Bold Italic" size="28.0" />
                     </font>
                 </Label>
                 <TableView fx:id="tableView" onMouseClicked="#userClickedOnTable" prefHeight="235.0" prefWidth="620.0">
@@ -27,12 +27,13 @@
                         <TextField fx:id="dniTextField" alignment="TOP_LEFT" minWidth="-Infinity" promptText="DNI">
                      <effect>
                         <Reflection />
-                     </effect></TextField>
+                     </effect>
+                  </TextField>
                         <TextField fx:id="firstNameTextField" prefWidth="175.0" promptText="First Name" />
                         <TextField fx:id="lastNameTextField" prefWidth="175.0" promptText="Last Name" />
                         <DatePicker fx:id="ageTextField" prefWidth="175.0" promptText="Age" />
 
-                          </children>
+                                                  </children>
                 </HBox>
             <HBox prefHeight="22.0" prefWidth="734.0">
                <children>
@@ -50,6 +51,11 @@
                         <Insets left="10.0" />
                      </HBox.margin>
                   </TextField>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="HOME | DONA" textAlignment="CENTER" wrappingWidth="88.13671875">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Text>
                </children>
                <VBox.margin>
                   <Insets />
@@ -62,10 +68,21 @@
                     <children>
                         <Button mnemonicParsing="false" onAction="#newPersonButtonPushed" prefWidth="175.0" text="Add New Person" />
                         <Button mnemonicParsing="false" onAction="#deleteButtonPushed" prefWidth="175.0" text="Delete Person(s) " />
-                        <Button fx:id="detailedPersonViewButton" mnemonicParsing="false" onAction="#changeSceneToDetailedPersonView" text="Detailed Person View" />
-                        <Button fx:id="btnLoadFile" maxWidth="1.7976931348623157E308" onAction="#clickLoadFile" text="Load" />
+                        <Button fx:id="detailedPersonViewButton" mnemonicParsing="false" onAction="#changeSceneToDetailedPersonView" prefWidth="175.0" text="Detailed Person View" />
+                        <Button fx:id="btnLoadFile" maxWidth="1.7976931348623157E308" onAction="#clickLoadFile" prefWidth="175.0" text="Load CSV File" />
                     </children>
                 </HBox>
+            <SplitPane dividerPositions="0.5217391304347826" orientation="VERTICAL" prefHeight="25.0" prefWidth="350.0">
+              <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" />
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="0.0" prefWidth="737.0" />
+              </items>
+            </SplitPane>
+            <Label layoutX="10.0" layoutY="10.0" prefHeight="47.0" prefWidth="215.0" text="Search on List">
+               <font>
+                  <Font name="System Bold Italic" size="27.0" />
+               </font>
+            </Label>
                 <HBox prefHeight="46.0" prefWidth="734.0" spacing="10.0">
                     <children>
                         <TextField fx:id="txtDNI" maxWidth="1.7976931348623157E308" promptText="DNI" />
