@@ -1,46 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.DatePicker?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.chart.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.effect.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.TableViewController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.TableViewController">
     <children>
         <VBox layoutX="26.0" layoutY="19.0" prefHeight="538.0" prefWidth="734.0" spacing="10.0">
             <children>
-                <Label text="Pacient List">
+                <Label text="Patient List">
                     <font>
                         <Font name="System Bold Italic" size="32.0" />
                     </font>
                 </Label>
                 <TableView fx:id="tableView" onMouseClicked="#userClickedOnTable" prefHeight="235.0" prefWidth="620.0">
                     <columns>
-                        <TableColumn fx:id="firstNameColumn" onEditCommit="#changeFirstNameCellEvent" prefWidth="120.0" text="First Name" />
-                        <TableColumn fx:id="lastNameColumn" onEditCommit="#changeLastNameCellEvent" prefWidth="154.0" text="Last Name" />
-                        <TableColumn fx:id="birthdayColumn" prefWidth="91.0" text="Birthday" />
+
                     </columns>
                 </TableView>
-                <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                <HBox alignment="CENTER_LEFT" prefHeight="22.0" prefWidth="734.0" spacing="10.0">
                     <children>
+                        <TextField fx:id="dniTextField" alignment="TOP_LEFT" minWidth="-Infinity" promptText="DNI">
+                     <effect>
+                        <Reflection />
+                     </effect></TextField>
                         <TextField fx:id="firstNameTextField" prefWidth="175.0" promptText="First Name" />
                         <TextField fx:id="lastNameTextField" prefWidth="175.0" promptText="Last Name" />
-                        <DatePicker fx:id="birthdayDatePicker" prefWidth="175.0" promptText="Birthday" />
-                    </children>
+                        <DatePicker fx:id="ageTextField" prefWidth="175.0" promptText="Age" />
+
+                          </children>
                 </HBox>
-                <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+            <HBox prefHeight="22.0" prefWidth="734.0">
+               <children>
+                        <TextField fx:id="telTextField" prefHeight="25.0" prefWidth="143.0" promptText="Telephone" />
+                        <TextField fx:id="pesTextField" promptText="Weight">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin></TextField>
+                        <TextField fx:id="alsadaTextField" promptText="Height">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin></TextField>
+                  <TextField fx:id="genTextField" layoutX="20.0" layoutY="10.0" promptText="Genere">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </HBox>
+                <HBox prefHeight="46.0" prefWidth="734.0" spacing="10.0">
                     <children>
                         <Button mnemonicParsing="false" onAction="#newPersonButtonPushed" prefWidth="175.0" text="Add New Person" />
                         <Button mnemonicParsing="false" onAction="#deleteButtonPushed" prefWidth="175.0" text="Delete Person(s) " />
                         <Button fx:id="detailedPersonViewButton" mnemonicParsing="false" onAction="#changeSceneToDetailedPersonView" text="Detailed Person View" />
+                        <Button fx:id="btnLoadFile" maxWidth="1.7976931348623157E308" onAction="#clickLoadFile" text="Load" />
                     </children>
                 </HBox>
+                <HBox prefHeight="46.0" prefWidth="734.0" spacing="10.0">
+                    <children>
+                        <TextField fx:id="txtDNI" maxWidth="1.7976931348623157E308" promptText="DNI" />
+                        <TextField fx:id="txtNom" maxWidth="1.7976931348623157E308" onKeyTyped="#changeText" promptText="Nom" />
+                        <TextField fx:id="txtCognoms" maxWidth="1.7976931348623157E308" onKeyTyped="#changeText" promptText="Cognoms" />
+                        <Button alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" onAction="#btnCerca" text="Cerca" textAlignment="CENTER" textOverrun="LEADING_ELLIPSIS" />
+                        <Button alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" onAction="#btnChart" text="Chart" textAlignment="CENTER" textOverrun="LEADING_ELLIPSIS" />
+                    </children>
+                </HBox>
+            <PieChart fx:id="idPieChart" prefHeight="60.0" prefWidth="734.0" />
             </children>
         </VBox>
     </children>
