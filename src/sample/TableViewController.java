@@ -134,15 +134,12 @@ public class TableViewController implements Initializable {
             setTableView();
         }
           //load dummy data
-       /* tableView.setItems(getPeople());
 
-        //Update the table to allow for the first and last name fields
-        //to be editable
         tableView.setEditable(true);
 
         //This will allow the table to select multiple rows at once
         tableView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-*/
+
         //Disable the detailed person view button until a row is selected
         this.detailedPersonViewButton.setDisable(true);
     }

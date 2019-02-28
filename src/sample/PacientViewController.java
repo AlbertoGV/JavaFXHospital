@@ -9,7 +9,6 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -19,23 +18,28 @@ import java.util.ResourceBundle;
 public class PacientViewController implements Initializable {
 
     private Pacient selectedPerson;
-
+    @FXML private Label dniLabel;
     @FXML private Label firstNameLabel;
     @FXML private Label lastNameLabel;
-    @FXML private Label birthdayLabel;
     @FXML private Label ageLabel;
-    @FXML private ImageView photo;
+    @FXML private Label pesLabel;
+    @FXML private Label alsadaLabel;
+    @FXML private Label genLabel;
+
 
 
     public void initData(Pacient pacient)
     {
 
         selectedPerson = pacient;
+        dniLabel.setText(selectedPerson.getDNI());
         firstNameLabel.setText(selectedPerson.getNom());
-        lastNameLabel.setText(selectedPerson.getNom());
-        birthdayLabel.setText(selectedPerson.getDataNaixament().toString());
-        ageLabel.setText(Integer.toString(selectedPerson.getEdat()));
-        photo.setImage(selectedPerson.getImage());
+        lastNameLabel.setText(selectedPerson.getCognoms());
+        ageLabel.setText(selectedPerson.getDataNaixament().toString());
+        pesLabel.setText(String.valueOf(selectedPerson.getPes()));
+        alsadaLabel.setText(String.valueOf(selectedPerson.getAlçada()));
+        genLabel.setText(selectedPerson.getGenere().toString());
+
     }
 
 
